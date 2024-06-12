@@ -1,0 +1,13 @@
+/*
+Theme Name: storefront-child
+Template:   storefront
+Version:    1.0.0
+*/
+
+.one-page-checkout #order_review_heading {
+    width: 100%;
+}
+
+.one-page-checkout #order_review {
+    width: 100%;
+}
