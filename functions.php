@@ -5,16 +5,29 @@
  * @package storefront-child
  */
 
-add_action('wp_enqueue_scripts', 'your_child_theme_enqueue_styles');
+add_action('after_setup_theme', 'storefront_child_load_textdomain');
 
-function your_child_theme_enqueue_styles() {
+function storefront_child_load_textdomain() {
+	load_child_theme_textdomain(
+		'storefront-child', 
+		get_stylesheet_directory() . '/languages'
+	);
+}
+
+add_action('wp_enqueue_scripts', 'storefront_child_enqueue_styles');
+
+function storefront_child_enqueue_styles() {
     $parent_style = 'storefront-style';
 
-    wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
+    wp_enqueue_style(
+		$parent_style, 
+		get_template_directory_uri() . '/style.css'
+	);
+
     wp_enqueue_style( 
 		'child-style',
         get_stylesheet_directory_uri() . '/assets/css/one-page-checkout.css',
-        array( $parent_style ),
+        array($parent_style),
         wp_get_theme()->get('Version')
     );
 }

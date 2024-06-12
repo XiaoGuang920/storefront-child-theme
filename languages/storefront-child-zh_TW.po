@@ -1,0 +1,5 @@
+msgid "Your Cart"
+msgstr "購物車"
+
+msgid "Checkout"
+msgstr "結帳付款"
